@@ -2,12 +2,15 @@ const express = require('express');
 const Task = require('../models/Task');
 const router = express.Router();
 const redis = require('redis');
+const sanitize = require('mongo-sanitize');
 
 const redisClient = redis.createClient();
 
 router.post('/add', async (req, res) => {
   try {
-    const { title } = req.body;
+    var { title } = req.body;
+    title = sanitize(title);
+
 
     if (!title) {
       return res.status(400).json({ message: 'O título não pode ser vazio.' });
