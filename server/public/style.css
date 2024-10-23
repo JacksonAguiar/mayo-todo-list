@@ -13,7 +13,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+  #login-form, #register-form{
+    display: flex;
+    flex-direction: column;
+  }
   h1 {
     text-align: center;
   }
@@ -23,7 +26,7 @@ body {
     margin-bottom: 20px;
   }
   
-  input[type="text"] {
+  input[type="text"],input[type="password"] {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
